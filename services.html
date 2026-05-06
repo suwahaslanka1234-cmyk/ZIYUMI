@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Ziyumi Beatz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="services-page dark-theme">
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">Ziyumi<span>Beatz</span></a>
+                </div>
+                <div class="nav-btn">
+                    <a href="index.html" class="btn-glow">Back to Home</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="services-container">
+        <h1 class="services-title">Our <span>Services</span></h1>
+        <p style="text-align:center; color:#888; margin-bottom:40px;">මිල ගණන් බැලීමට සේවාව මත ක්ලික් කරන්න.</p>
+
+        <div class="services-grid">
+            <div class="service-card" onclick="openPricing('Music Production', 'Rs. 15,000 upwards', 'Hello Ziyumi Beatz! I am interested in Music Production (Trap/Drill/Hip-Hop).')">
+                <div class="card-icon">🎵</div>
+                <h3>Music Production</h3>
+                <p>Trap, Drill සහ Hip-Hop beats නිර්මාණය.</p>
+            </div>
+
+            <div class="service-card" onclick="openPricing('Professional DJ', 'Rs. 25,000 upwards', 'Hello! I would like to book your Professional DJ service for an event.')">
+                <div class="card-icon">🎧</div>
+                <h3>Professional DJ</h3>
+                <p>ඕනෑම පාටියකට සජීවී සංගීතය.</p>
+            </div>
+
+            <div class="service-card" onclick="openPricing('Mixing & Mastering', 'Rs. 5,000 per track', 'Hi, I need Professional Mixing & Mastering for my tracks.')">
+                <div class="card-icon">🎹</div>
+                <h3>Mixing & Mastering</h3>
+                <p>පැහැදිලි ශබ්ද කළමනාකරණය.</p>
+            </div>
+
+            <div class="service-card" onclick="openPricing('Graphic Design', 'Rs. 2,500 upwards', 'I am looking for Graphic Design work (Logo/Social Media).')">
+                <div class="card-icon">🎨</div>
+                <h3>Graphic Design</h3>
+                <p>Logos සහ Social Media නිර්මාණ.</p>
+            </div>
+
+            <div class="service-card" onclick="openPricing('Web Design', 'Rs. 20,000 upwards', 'I want to discuss about a Web Design project.')">
+                <div class="card-icon">🌐</div>
+                <h3>Web Design</h3>
+                <p>නවීන වෙබ් අඩවි නිර්මාණය.</p>
+            </div>
+
+            <div class="service-card" onclick="openPricing('Sound Design', 'Contact for Quote', 'Hello, I need custom Sound Design for my video project.')">
+                <div class="card-icon">🔊</div>
+                <h3>Sound Design</h3>
+                <p>වීඩියෝ සඳහා විශේෂිත ශබ්ද.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Popup -->
+    <div id="pricingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Service Name</h2>
+            <p class="price-tag" id="modalPrice">Price</p>
+            <button id="whatsappBtn" class="btn-main" style="width:100%; border:none; cursor:pointer;">Order via WhatsApp</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Ziyumi Beatz | Created by M.U.R.D.D. Fonseka</p>
+    </footer>
+
+    <script>
+        function openPricing(name, price, message) {
+            document.getElementById('modalTitle').innerText = name;
+            document.getElementById('modalPrice').innerText = price;
+            
+            const phone = "94767345240";
+            const encodedMsg = encodeURIComponent(message);
+            document.getElementById('whatsappBtn').onclick = function() {
+                window.open(`https://wa.me/${phone}?text=${encodedMsg}`, '_blank');
+            };
+
+            document.getElementById('pricingModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('pricingModal').style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('pricingModal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
