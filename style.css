@@ -16,7 +16,7 @@ body.dark-theme {
 
 /* --- NAVBAR (ලෝගෝ එක සහ බටන් එක දෙපැත්තට කරන කොටස) --- */
 header {
-    width: 100%;
+    width: 120%;
     height: 90px;
     background: rgba(10, 10, 10, 0.9);
     backdrop-filter: blur(15px);
