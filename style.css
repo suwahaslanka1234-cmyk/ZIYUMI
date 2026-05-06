@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;900&display=swap');
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+/* --- GENERAL RESET --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif; 
+}
 
 body.dark-theme {
     background-color: #0a0a0a;
@@ -8,15 +14,14 @@ body.dark-theme {
     overflow-x: hidden;
 }
 
-/* --- NAVBAR (සියලුම පිටු සඳහා) --- */
+/* --- NAVBAR (ලෝගෝ එක සහ බටන් එක දෙපැත්තට කරන කොටස) --- */
 header {
     width: 100%;
     height: 90px;
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(15px);
     display: flex;
-    justify-content: center; /* මැදට ගනී */
-    align-items: center;
+    justify-content: center;
     position: fixed;
     top: 0;
     z-index: 1000;
@@ -25,56 +30,53 @@ header {
 
 .nav-container {
     width: 100%;
-    max-width: 1200px; /* මැද තියෙන සීමාව */
+    max-width: 100%; /* සම්පූර්ණ පළල පාවිච්චි කිරීමට */
     display: flex;
-    justify-content: space-between; /* Logo, Links, Button බෙදාගනී */
+    justify-content: space-between; /* මෙය මගින් අයිතම දෙපැත්තට තල්ලු කරයි */
     align-items: center;
-    padding: 0 20px;
+    padding: 0 50px; /* දෙපැත්තෙන් ඇති පරතරය */
 }
 
-.logo a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 24px;
-    font-weight: 900;
+.logo { 
+    flex: 1; 
+    display: flex; 
+    justify-content: flex-start; 
 }
+
+.logo a { 
+    text-decoration: none; 
+    color: #fff; 
+    font-size: 24px; 
+    font-weight: 900; 
+}
+
 .logo span { color: #ff4757; }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 35px;
+.nav-links { 
+    flex: 1; 
+    display: flex; 
+    list-style: none; 
+    gap: 35px; 
+    justify-content: center; 
 }
 
-.nav-links li a {
-    text-decoration: none;
-    color: #ccc;
-    font-size: 15px;
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: 0.3s;
+.nav-links li a { 
+    text-decoration: none; 
+    color: #ccc; 
+    font-size: 14px; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    transition: 0.3s; 
 }
+
 .nav-links li a:hover, .nav-links li a.active { color: #ff4757; }
 
-.btn-glow {
-    text-decoration: none;
-    padding: 10px 25px;
-    background: #ff4757;
-    color: white;
-    font-weight: 700;
-    border-radius: 50px;
-    box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
+.nav-btn { 
+    flex: 1; 
+    display: flex; 
+    justify-content: flex-end; 
 }
 
-.logo { flex: 1; display: flex; justify-content: flex-start; }
-.logo a { text-decoration: none; color: #fff; font-size: 24px; font-weight: 900; }
-.logo span { color: #ff4757; }
-
-.nav-links { flex: 1; display: flex; list-style: none; gap: 35px; justify-content: center; }
-.nav-links li a { text-decoration: none; color: #ccc; font-size: 14px; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
-.nav-links li a:hover, .nav-links li a.active { color: #ff4757; }
-
-.nav-btn { flex: 1; display: flex; justify-content: flex-end; }
 .btn-glow {
     text-decoration: none;
     padding: 10px 25px;
@@ -84,27 +86,112 @@ header {
     border-radius: 50px;
     box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
     white-space: nowrap;
+    transition: 0.3s;
 }
 
-/* --- HERO SECTION --- */
-.hero { min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 100px 40px 0; }
-.hero-content { max-width: 1200px; display: flex; align-items: center; gap: 50px; }
+.btn-glow:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 71, 87, 0.5);
+}
+
+/* --- HERO SECTION (Home Page) --- */
+.hero { 
+    min-height: 100vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 120px 40px 60px; 
+}
+
+.hero-content { 
+    max-width: 1200px; 
+    display: flex; 
+    align-items: center; 
+    gap: 50px; 
+}
+
 .hero-text { flex: 1.2; }
-.badge { background: rgba(255, 71, 87, 0.1); color: #ff4757; padding: 6px 14px; border-radius: 5px; font-size: 13px; font-weight: 700; margin-bottom: 20px; display: inline-block; }
-.hero-text h1 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 25px; }
-.outline-text { color: transparent; -webkit-text-stroke: 1px #fff; }
-.gold-text { font-size: 1.1rem; color: #aaa; margin-bottom: 30px; }
-.btn-main { text-decoration: none; padding: 15px 35px; background: #00c292; color: white; font-weight: 700; border-radius: 10px; display: inline-block; transition: 0.3s; }
-.btn-main:hover { transform: scale(1.05); background: #00e0a7; }
+
+.badge { 
+    background: rgba(255, 71, 87, 0.1); 
+    color: #ff4757; 
+    padding: 6px 14px; 
+    border-radius: 5px; 
+    font-size: 13px; 
+    font-weight: 700; 
+    margin-bottom: 20px; 
+    display: inline-block; 
+}
+
+.hero-text h1 { 
+    font-size: 3.5rem; 
+    font-weight: 900; 
+    line-height: 1.1; 
+    margin-bottom: 25px; 
+}
+
+.outline-text { 
+    color: transparent; 
+    -webkit-text-stroke: 1.5px #fff; 
+}
+
+.gold-text { 
+    font-size: 1.1rem; 
+    color: #aaa; 
+    margin-bottom: 35px; 
+}
+
+.btn-main { 
+    text-decoration: none; 
+    padding: 15px 35px; 
+    background: #00c292; 
+    color: white; 
+    font-weight: 700; 
+    border-radius: 10px; 
+    display: inline-block; 
+    transition: 0.3s; 
+}
+
+.btn-main:hover { 
+    transform: scale(1.05); 
+    background: #00e0a7; 
+}
+
 .hero-image { flex: 1; }
-.img-wrapper { background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 25px; }
-.img-wrapper img { width: 100%; border-radius: 18px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+
+.img-wrapper { 
+    background: rgba(255, 255, 255, 0.05); 
+    padding: 12px; 
+    border-radius: 25px; 
+}
+
+.img-wrapper img { 
+    width: 100%; 
+    border-radius: 18px; 
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6); 
+}
 
 /* --- SERVICES GRID & ANIMATION --- */
-.services-container { padding: 150px 5% 80px; max-width: 1200px; margin: 0 auto; }
-.services-title { text-align: center; font-size: 3.5rem; margin-bottom: 10px; font-weight: 900; }
+.services-container { 
+    padding: 150px 5% 80px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.services-title { 
+    text-align: center; 
+    font-size: 3.5rem; 
+    margin-bottom: 10px; 
+    font-weight: 900; 
+}
+
 .services-title span { color: #ff4757; }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+.services-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; 
+}
 
 .service-card {
     background: #111;
@@ -113,31 +200,80 @@ header {
     border-radius: 20px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 .service-card:hover {
-    transform: translateY(-15px);
+    transform: translateY(-15px) scale(1.02);
     border-color: #ff4757;
     background: rgba(255, 71, 87, 0.05);
     box-shadow: 0 15px 40px rgba(255, 71, 87, 0.15);
 }
+
 .card-icon { font-size: 45px; margin-bottom: 20px; }
 .service-card h3 { margin-bottom: 15px; font-size: 22px; }
 .service-card p { color: #888; font-size: 15px; }
 
-/* --- MODAL POPUP --- */
-.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); }
-.modal-content { background: #161616; margin: 12% auto; padding: 45px; border: 1px solid #ff4757; width: 90%; max-width: 420px; border-radius: 25px; text-align: center; position: relative; animation: slideUp 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28); }
-.price-tag { font-size: 2rem; color: #00c292; font-weight: 900; margin: 25px 0; }
-.close { position: absolute; right: 25px; top: 15px; color: #555; font-size: 32px; cursor: pointer; }
-@keyframes slideUp { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+/* --- MODAL POPUP (මිල ගණන් පෙන්වන පැනලය) --- */
+.modal { 
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.85); 
+    backdrop-filter: blur(8px); 
+}
 
-footer { text-align: center; padding: 60px; color: #333; }
+.modal-content { 
+    background: #161616; 
+    margin: 12% auto; 
+    padding: 45px; 
+    border: 1px solid #ff4757; 
+    width: 90%; 
+    max-width: 420px; 
+    border-radius: 25px; 
+    text-align: center; 
+    position: relative; 
+    animation: slideUp 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28); 
+}
 
-/* Mobile */
+.price-tag { 
+    font-size: 2rem; 
+    color: #00c292; 
+    font-weight: 900; 
+    margin: 25px 0; 
+}
+
+.close { 
+    position: absolute; 
+    right: 25px; 
+    top: 15px; 
+    color: #555; 
+    font-size: 32px; 
+    cursor: pointer; 
+}
+
+@keyframes slideUp { 
+    from { transform: translateY(100px); opacity: 0; } 
+    to { transform: translateY(0); opacity: 1; } 
+}
+
+/* --- FOOTER --- */
+footer { 
+    text-align: center; 
+    padding: 60px; 
+    color: #333; 
+    font-size: 14px; 
+}
+
+/* --- RESPONSIVE (Mobile වලට ගැළපෙන ලෙස) --- */
 @media (max-width: 900px) {
-    .nav-links { display: none; }
+    .nav-links { display: none; } /* Mobile වලදී මැද මෙනු එක හංගයි */
+    .nav-container { padding: 0 20px; }
     .hero-content { flex-direction: column; text-align: center; }
     .hero-text h1 { font-size: 2.5rem; }
-    .nav-container { padding: 0 20px; }
+    .services-title { font-size: 2.5rem; }
 }
