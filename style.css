@@ -29,8 +29,8 @@ header {
 }
 
 .nav-container {
-    width: 100%;
-    max-width: 100%; /* සම්පූර්ණ පළල පාවිච්චි කිරීමට */
+    width: 120%;
+    max-width: 120%; /* සම්පූර්ණ පළල පාවිච්චි කිරීමට */
     display: flex;
     justify-content: space-between; /* මෙය මගින් අයිතම දෙපැත්තට තල්ලු කරයි */
     align-items: center;
